@@ -1,0 +1,13 @@
+node_modules/
+.cache/
+test-results/
+playwright-report/
+qa-reports/
+docs/evidence/
+*.log
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+*.zip

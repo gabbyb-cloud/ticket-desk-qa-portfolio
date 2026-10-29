@@ -1,0 +1,54 @@
+name: Ticket Desk QA
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: windows-2025
+    timeout-minutes: 20
+    env:
+      NPM_CONFIG_USERCONFIG: '${{ github.workspace }}/.npm-config-unused'
+      NPM_CONFIG_GLOBALCONFIG: '${{ github.workspace }}/.npm-global-unused'
+      NPM_CONFIG_CACHE: '${{ github.workspace }}/.cache/npm'
+      NPM_CONFIG_UPDATE_NOTIFIER: 'false'
+      PLAYWRIGHT_BROWSERS_PATH: '${{ github.workspace }}/.cache/pw-browsers'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24.16.0'
+          package-manager-cache: false
+      - name: Locked dependency installation
+        run: npm.cmd ci --ignore-scripts --no-audit --no-fund
+      - name: Validate workflow
+        run: node scripts/validate-workflow.mjs
+      - name: Lint, TypeScript and scrypt resource checks
+        run: node scripts/verify-checks.mjs
+      - name: Install Chromium headless shell
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path .cache/tmp | Out-Null
+          $env:TEMP = Join-Path $PWD '.cache/tmp'
+          $env:TMP = $env:TEMP
+          node node_modules/playwright/cli.js install chromium --only-shell
+      - name: API and Chromium regression tests
+        run: node scripts/run-tests.mjs --workers=2 --stage-ci
+      - name: Upload sanitized failure reports only
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: sanitized-qa-reports
+          path: |
+            qa-reports/checks.json
+            qa-reports/qa.json
+            qa-reports/qa.html
+            qa-reports/qa.xml
+          retention-days: 7
+          include-hidden-files: false
+          if-no-files-found: ignore
