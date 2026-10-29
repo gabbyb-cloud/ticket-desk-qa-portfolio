@@ -9,7 +9,9 @@ A local ticket-management application with a JSON API, server-rendered forms, an
 - **Diagnostics:** sanitized JSON, HTML, and JUnit reports without raw errors or browser captures.
 - **CI:** Windows GitHub Actions, locked dependencies, pinned actions, and allowlisted failure reports.
 
-**Inherited verification:** in predecessor `gabbyb-cloud/ticket-desk-qa`, all 32 API/Chromium tests passed locally with no failures, skips, or retries; checks and sanitized-report validation passed, and **Ticket Desk QA #1** hosted CI passed. Local tests and CI have not been executed or verified in this fresh `ticket-desk-qa-portfolio` copy. See [verification details](docs/VERIFICATION.md) for provenance and the original project's separate EVD-01 results; its expiration observation remains pending.
+**Verification:** In the predecessor `gabbyb-cloud/ticket-desk-qa`, all 32 API/Chromium tests passed locally with no failures, skips, or retries; checks and sanitized-report validation also passed.
+
+The fresh `ticket-desk-qa-portfolio` repository independently passed **Ticket Desk QA #1** on GitHub Actions at commit `40b82ab` (October 29, 2026). Local application tests have not been rerun in the fresh copy. See [verification details](docs/VERIFICATION.md) for historical evidence and the original project's separate EVD-01 results; its artifact-expiration observation remains pending.
 
 ## Stack
 
@@ -40,4 +42,4 @@ Keep credentials and private evidence out of commits. Captures, traces, and vide
 - [Verification scope](docs/VERIFICATION.md) | [Standard CI](.github/workflows/ci.yml)
 - [MIT license](LICENSE) | [Licensing and attribution](docs/LICENSING.md) | [Third-party notices](docs/THIRD-PARTY-NOTICES.txt)
 
-This fresh source-only snapshot awaits founder review. No GitHub repository has been created for it, and it has not been published or deployed.
+This standalone portfolio project is maintained in a private GitHub repository pending final public-release approval. Its source code has been committed and its GitHub Actions CI has passed. The application has not been deployed.
