@@ -1,6 +1,12 @@
 # Verification scope
 
-This fresh `ticket-desk-qa-portfolio` source-only copy derives from the approved `ticket-desk-qa` snapshot at commit `9c4c4a58c46da22f471f894fc7343894f70f4605`. It contains no imported Git history, recovery references, private evidence bundles, or specialized evidence probes. Local tests and hosted CI have not been executed or verified in this fresh copy.
+This fresh `ticket-desk-qa-portfolio` source-only copy derives from the approved `ticket-desk-qa` snapshot at commit `9c4c4a58c46da22f471f894fc7343894f70f4605`. It contains no imported Git history, recovery references, private evidence bundles, or specialized evidence probes. At initial creation, local tests and hosted CI had not been executed or verified in this fresh copy. For its subsequent hosted-CI status, see the dated addendum below.
+
+## Fresh portfolio repository: hosted-CI update — 2026-10-29
+
+After the initial source-only snapshot, this repository was committed and its GitHub Actions workflow `Ticket Desk QA #1` was reported by the founder as successful at commit [`40b82ab`](https://github.com/gabbyb-cloud/ticket-desk-qa-portfolio/commit/40b82ab51baeca03bfedc56ae81982e82ea1b222). The repository's README records this hosted result. This addendum updates the historical statement above that no hosted run existed in the fresh copy.
+
+The reported hosted success is distinct from the predecessor's local 32-test evidence. This document does **not** claim a fresh local test rerun, an independently reviewed Actions job log, or completion of the original EVD-01 artifact-expiration requirement. The application remains a synthetic localhost demonstration, not a production deployment. The repository is public as of this documentation update.
 
 ## Predecessor: independently verified locally
 
@@ -26,7 +32,7 @@ The founder confirmed that **Ticket Desk QA #1** passed in GitHub Actions for po
 
 The standard workflow runs workflow-policy validation, lint, TypeScript and scrypt checks, then the standard API/Chromium suite. It is configured for two concurrent workers and zero retries; the independently recorded local run above used one worker. No hosted run URL or additional hosted test-count claim is supplied here.
 
-The predecessor remains private. This fresh copy has no Git history, remote, or hosted CI history. Public release requires founder approval of the exact source, new commit identity, and any future Actions log/artifact exposure. No deployment or visibility change has occurred.
+At the time this historical assessment was written, the predecessor remained private and the fresh copy had no Git history, remote or hosted CI history. Those were historical publication-readiness findings, not the repository's current state.
 
 ## Original project: historical results
 
