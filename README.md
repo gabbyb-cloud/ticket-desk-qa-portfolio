@@ -42,4 +42,4 @@ Keep credentials and private evidence out of commits. Captures, traces, and vide
 - [Verification scope](docs/VERIFICATION.md) | [Standard CI](.github/workflows/ci.yml)
 - [MIT license](LICENSE) | [Licensing and attribution](docs/LICENSING.md) | [Third-party notices](docs/THIRD-PARTY-NOTICES.txt)
 
-This standalone portfolio project is maintained in a private GitHub repository pending final public-release approval. Its source code has been committed and its GitHub Actions CI has passed. The application has not been deployed.
+This is a public, standalone QA engineering portfolio project using synthetic data. Its GitHub Actions CI has passed, as documented in the verification scope. The application is intended for local demonstration and has not been deployed.
